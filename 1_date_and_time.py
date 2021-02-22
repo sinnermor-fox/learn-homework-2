@@ -1,3 +1,4 @@
+import datetime
 """
 Домашнее задание №2
 
@@ -9,20 +10,20 @@
 """
 
 def print_days():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+    date_format = '%d.%m.%Y'
+    today = datetime.date.today()
+    yesterday = datetime.date.today() - datetime.timedelta(1)
+    days_30_before = datetime.date.today() + datetime.timedelta(30)
+    print(today.strftime(date_format))
+    print(yesterday.strftime(date_format))
+    print(days_30_before.strftime(date_format))
+
 
 
 def str_2_datetime(date_string):
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+    date_converted = datetime.datetime.strptime(date_string, "%d/%m/%y %H:%M:%S.%f")
+    return date_converted
 
 if __name__ == "__main__":
     print_days()
-    print(str_2_datetime("01/01/20 12:10:03.234567"))
+    print(str_2_datetime("01/01/20 12:10:03.234"))
